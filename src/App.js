@@ -7,6 +7,7 @@ class App extends React.Component {
     return(
       <div>
         <Nav/>
+        <h2>Las ofertas de la semana</h2>
       </div>
     )
   }
