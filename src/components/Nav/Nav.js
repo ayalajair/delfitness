@@ -30,7 +30,7 @@ const Nav = () => {
                                         </li>
                                         <li></li>
                                 </ul>
-                                <div className="text-end">
+                                <div>
                                         <CartWidget/>
                                 </div>
                                 </div>
