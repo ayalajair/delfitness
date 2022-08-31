@@ -1,0 +1,16 @@
+.itemCounter {
+    height: 150px;
+    width: 200px;
+    margin: 100px auto;
+    border: 1px solid #000;
+    border-radius: 10px;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btnControls {
+    margin: 10px;
+}

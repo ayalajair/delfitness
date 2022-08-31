@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import './ItemCount.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const ItemCount = ()=> {
-    const [counter, setCounter] = useState (0);
+const ItemCount = ({initial, stock, onAdd})=> {
+    const [counter, setCounter] = useState (initial);
 
     const handlerCounterDown = () => {
         if (counter>0) {
@@ -11,18 +11,20 @@ const ItemCount = ()=> {
         }
     };
     const handlerCounterUp = () => {
-        if (counter<10) {
+        if (counter<stock) {
             setCounter(counter + 1);
         }
     };
 
     return (
         <div className="itemCounter">
-            <button className="btn btn-outline-dark" onClick={handlerCounterDown}>-</button>
-            <span>{counter}</span>
-            <button className="btn btn-outline-dark" onClick={handlerCounterUp}>+</button>
             <div>
-                <button className="btn btn-dark">Agregar al carrito</button>
+                <button className="btn btn-outline-dark btnControls" onClick={handlerCounterDown}>-</button>
+                <span>{counter}</span>
+                <button className="btn btn-outline-dark btnControls" onClick={handlerCounterUp}>+</button>
+            </div>
+            <div>
+                <button className="btn btn-dark" disabled= {counter<=0} onClick={()=>onAdd(counter)}>Agregar al carrito</button>
             </div>
         </div>
     )
