@@ -3,6 +3,12 @@ import './ItemListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemCount from "../ItemCount/ItemCount";
 
+const products = [
+    {id: 1, image:"https://d3ugyf2ht6aenh.cloudfront.net/stores/583/512/products/ad1-1ae824ed7d318d717716050381274204-480-0.jpg", title:"Xtrenght Advanced Whey Protein 1 Kg", price:5720},
+    {id: 2, image:"https://d3ugyf2ht6aenh.cloudfront.net/stores/583/512/products/79001-2ff697ab89dc00e5e416370686424715-480-0.jpg", title:"ENA SPORT True Made Whey Protein 1 kg", price:5065},
+    {id: 3, image:"https://d3ugyf2ht6aenh.cloudfront.net/stores/583/512/products/ena_whey_protein_true_made1-27922783b78fa545d216051172622753-480-0.jpg", title:"Gentech whey protein 7900 1kg", price:3555}
+];
+
 const ItemListContainer = ({greeting}) => {
 
     const onAdd = (quantity) => {
