@@ -2,6 +2,7 @@ import React from "react";
 import './ItemListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemCount from "../ItemCount/ItemCount";
+import ItemList from "../ItemList/ItemList";
 
 const products = [
     {id: 1, image:"https://d3ugyf2ht6aenh.cloudfront.net/stores/583/512/products/ad1-1ae824ed7d318d717716050381274204-480-0.jpg", title:"Xtrenght Advanced Whey Protein 1 Kg", price:5720},
@@ -16,8 +17,9 @@ const ItemListContainer = ({greeting}) => {
     }
     return (
         <>
-        <h2>{greeting}</h2>
-        <ItemCount initial={1} stock={10} onAdd={onAdd}/>
+        <h2>{greeting}</h2>;
+        <ItemCount initial={1} stock={10} onAdd={onAdd}/>;
+        <ItemList/>;
         </>
     )
 }
