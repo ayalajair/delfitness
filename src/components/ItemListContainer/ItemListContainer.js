@@ -10,7 +10,7 @@ const products = [
     {id: 3, image:"https://d3ugyf2ht6aenh.cloudfront.net/stores/583/512/products/ena_whey_protein_true_made1-27922783b78fa545d216051172622753-480-0.jpg", title:"Gentech whey protein 7900 1kg", price:3555}
 ];
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
     const [data, setData] = useState ([]);
 
     useEffect(() => {
@@ -28,7 +28,6 @@ const ItemListContainer = ({greeting}) => {
     }
     return (
         <>
-        <h2>{greeting}</h2>
         <ItemCount initial={1} stock={10} onAdd={onAdd}/>
         <div className="row justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
         <ItemList data={data}/>
