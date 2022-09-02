@@ -2,7 +2,7 @@ import React from "react";
 import './Item.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const item = ({detail}) => {
+const Item = ({detail}) => {
     return (
         <div className="col  w-25">
             <div className="card border-dark text-bg-dark mb-3">
@@ -17,4 +17,4 @@ const item = ({detail}) => {
 
 }
 
-export default item;
+export default Item;
