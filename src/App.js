@@ -13,7 +13,8 @@ class App extends React.Component {
         <h3>Las ofertas de la semana</h3>
         <ItemDetailContainer/>
       </div>
-    )
+
+)
   }
 }
 
