@@ -30,7 +30,7 @@ const ItemListContainer = ({greeting}) => {
         <>
         <h2>{greeting}</h2>
         <ItemCount initial={1} stock={10} onAdd={onAdd}/>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <div className="row justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
         <ItemList data={data}/>
         </div>
         </>
