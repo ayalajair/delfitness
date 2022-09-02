@@ -2,10 +2,10 @@ import React from "react";
 import './ItemList.css'
 import Item from "../Item/Item";
 
-const ItemList = ()=>{
+const ItemList = ({data})=>{
     return (
-        <Item/>
-    )
+            data.map(product=><Item key={product.id} detail={product}/>)       
+    );
 } 
 
 export default ItemList

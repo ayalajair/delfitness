@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import './ItemListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemCount from "../ItemCount/ItemCount";
@@ -11,15 +11,28 @@ const products = [
 ];
 
 const ItemListContainer = ({greeting}) => {
+    const [data, setData] = useState ([]);
+
+    useEffect(() => {
+        const getData = new Promise (resolve => {
+            setTimeout(() => {
+                resolve(products);
+            }, 2000);
+        })
+        getData.then(res=>setData(res));
+    }, [])
+    
 
     const onAdd = (quantity) => {
         console.log (`Has agregado ${quantity} unidades al carrito.`);
     }
     return (
         <>
-        <h2>{greeting}</h2>;
-        <ItemCount initial={1} stock={10} onAdd={onAdd}/>;
-        <ItemList/>;
+        <h2>{greeting}</h2>
+        <ItemCount initial={1} stock={10} onAdd={onAdd}/>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <ItemList data={data}/>
+        </div>
         </>
     )
 }

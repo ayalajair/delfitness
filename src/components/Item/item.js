@@ -2,14 +2,14 @@ import React from "react";
 import './Item.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const item = () => {
+const item = ({detail}) => {
     return (
-        <div class="col">
-            <div class="card">
-                <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/583/512/products/ad1-1ae824ed7d318d717716050381274204-480-0.jpg" class="card-img-top" alt="..."/>
-                <div class="card-body">
-                    <h5 class="card-title">Titulo</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <div className="col">
+            <div className="card border-dark text-bg-dark mb-3">
+                <img src={detail.image} class="card-img-top" alt="..."/>
+                <div className="card-body">
+                    <h5 className="card-title">{detail.title}</h5>
+                    <p className="card-text">$ {detail.price}</p>
                 </div>
             </div>
         </div>
