@@ -2,6 +2,7 @@ import React from "react";
 import "./ItemDetail.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const ItemDetail = ({data}) => {
     return(
         <div className="container text-center w-100 detailCont">

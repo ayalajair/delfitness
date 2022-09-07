@@ -5,6 +5,7 @@ import img from '../../assets/logo-delfitness.png'
 import CartWidget from "../CartWidget/CartWidget";
 import { NavLink } from "react-router-dom";
 
+
 const Nav = () => {
         return (
         <header className="navbar navbar-dark bg-dark navbar-expand-lg bd-navbar sticky-top">
@@ -21,18 +22,18 @@ const Nav = () => {
                                                 <NavLink className="nav-link" to='/'>Home</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                                <NavLink className="nav-link" to='/category/Indumentaria'>Indumentaria</NavLink>
+                                                <NavLink className="nav-link" to='/category/indumentaria'>Indumentaria</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                                <NavLink className="nav-link" to='/category/Accesorio'>Accesorios</NavLink>
+                                                <NavLink className="nav-link" to='/category/accesorios'>Accesorios</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                                <NavLink className="nav-link" to='/category/Suplementos'>Suplementos</NavLink>
+                                                <NavLink className="nav-link" to='/category/suplementos'>Suplementos</NavLink>
                                         </li>
                                         <li></li>
                                 </ul>
                                 <div>
-                                        <NavLink to='/'>
+                                        <NavLink to='/cart'>
                                                 <CartWidget/>        
                                         </NavLink>
                                 </div>
