@@ -17,7 +17,7 @@ const ItemCount = ({initial, stock, onAdd})=> {
     };
 
     return (
-        <div className="itemCounter">
+        <div className="itemCounter text-bg-light">
             <div>
                 <button className="btn btn-outline-dark btnControls" onClick={handlerCounterDown}>-</button>
                 <span>{counter}</span>

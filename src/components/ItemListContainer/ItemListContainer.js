@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import './ItemListContainer.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
@@ -38,12 +37,9 @@ const ItemListContainer = () => {
     }, [categoryId])
     
 
-    const onAdd = (quantity) => {
-        console.log (`Has agregado ${quantity} unidades al carrito.`);
-    }
+
     return (
         <>
-        <ItemCount initial={1} stock={10} onAdd={onAdd}/>
         <div className="row justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
         <ItemList data={data}/>
         </div>
