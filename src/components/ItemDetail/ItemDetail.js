@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import "./ItemDetail.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
+
 
 
 const ItemDetail = ({data}) => {
 
+    const [goToCart, setGoToCart] = useState (false);
+
     const onAdd = (quantity) => {
-        console.log (`Has agregado ${quantity} unidades al carrito.`);
+        setGoToCart(true);
     }
 
     return(
@@ -21,7 +25,9 @@ const ItemDetail = ({data}) => {
                         <h2 className="tituloProducto text-bg-dark m-1">{data.title}</h2>
                         <h3 className="text-bg-dark " >$ {data.price}</h3>
                         <p className="text-wrap w-70 bg-white textDescription">{data.description}</p>
-                        <ItemCount initial={1} stock={10} onAdd={onAdd}/>
+                        {goToCart ? <Link to='/cart'><button className="btn btn-outline-light button mb-4">Finalizar compra</button></Link>
+                        : <ItemCount initial={0} stock={data.stock} onAdd={onAdd}/>}
+                        <p className="text-bg-dark">{`Stock: ${data.stock} unidades`}</p>
                     </div>
                 </div>
             </div>
