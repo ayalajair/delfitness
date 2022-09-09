@@ -3,6 +3,7 @@ import "./ItemDetail.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
+import {CartContex} from "../CartContext/CartContext";
 
 
 
