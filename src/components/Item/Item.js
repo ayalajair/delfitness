@@ -2,7 +2,6 @@ import React from "react";
 import './Item.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
-import {CartContex} from "../CartContext/CartContext";
 
 const Item = ({detail}) => {
     return (
