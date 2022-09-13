@@ -25,13 +25,13 @@ const ItemDetail = ({data}) => {
                     <img className="imageProduct" src={data.image} alt={data.title}/>
                 </div>
                 <div className="col justify-content-center">
-                    <div className="justify-content-center align-item-around bg-dark descriptionCard m-auto">
-                        <h2 className="tituloProducto text-bg-dark m-1">{data.title}</h2>
-                        <h3 className="text-bg-dark " >$ {data.price}</h3>
-                        <p className="text-wrap w-70 bg-white textDescription">{data.description}</p>
+                    <div className="justify-content-center align-item-around text-bg-light descriptionCard m-auto">
+                        <h3 className="tituloProducto m-1">{data.title}</h3>
+                        <h2>$ {data.price}</h2>
+                        <p className="text-wrap w-70 textDescription">{data.description}</p>
                         {goToCart ? <Link to='/cart'><button className="btn btn-outline-light button mb-4">Finalizar compra</button></Link>
                         : <ItemCount initial={0} stock={data.stock} onAdd={onAdd}/>}
-                        <p className="text-bg-dark">{`Stock: ${data.stock} unidades`}</p>
+                        <p>{`Stock: ${data.stock} unidades`}</p>
                     </div>
                 </div>
             </div>

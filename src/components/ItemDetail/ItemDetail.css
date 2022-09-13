@@ -6,6 +6,7 @@
 }
 .descriptionCard {
     width: 400px;
-    border: 2px solid #000;
     border-radius:10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
 }
