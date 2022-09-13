@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 const Item = ({detail}) => {
     return (
-        <div className="col  w-25">
-            <div className="card border-dark text-bg-dark mt-4">
-                <Link to={`/detail/${detail.id}`}>
-                <img src={detail.image} className="card-img-top" alt="..."/>
+        <div className="col  w-15 d-flex justify-content-around">
+            <div className="card text-bg-light m-4 productCard">
+                <Link to={`/detail/${detail.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <img src={detail.image} className="card-img-top productImage" alt="..."/>
                 <div className="card-body">
-                    <h5 className="card-title">{detail.title}</h5>
-                    <p className="card-text">$ {detail.price}</p>
+                    <h5 className="card-title">$ {detail.price}</h5>
+                    <p className="card-text">{detail.title}</p>
                 </div>
                 </Link>
             </div>

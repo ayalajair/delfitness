@@ -1,0 +1,26 @@
+.productImage {
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    margin: 5px;
+
+}
+
+h5 {
+    text-align: center;
+    font-size: large;
+}
+p {
+    text-align: center;
+    font-size: medium;
+}
+
+.productCard {
+    width: 270px;
+    padding: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+}
