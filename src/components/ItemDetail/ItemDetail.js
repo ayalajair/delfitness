@@ -2,6 +2,8 @@ import React, {useState, useContext} from "react";
 import "./ItemDetail.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemCount from "../ItemCount/ItemCount";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
 import { CartContext } from "../CartContext/CartContext";
 
@@ -32,6 +34,17 @@ const ItemDetail = ({data}) => {
                         {goToCart ? <Link to='/cart'><button className="btn btn-outline-light button mb-4">Finalizar compra</button></Link>
                         : <ItemCount initial={0} stock={data.stock} onAdd={onAdd}/>}
                         <p>{`Stock: ${data.stock} unidades`}</p>
+                        <ToastContainer 
+                        position="top-right"
+                        autoClose={2000}
+                        hideProgressBar={true}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="dark"/>
                     </div>
                 </div>
             </div>
