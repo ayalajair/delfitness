@@ -8,11 +8,17 @@ const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState ([]);
 
+    const totalCart = () => {
+        return cart.reduce ((prev, act) => prev + act.quantity * act.price, 0);
+    }
+
+    const totalQuantity = () => cart.reduce ((acc,actProd)=> acc + actProd.quantity,0);
+
     const clear = () => setCart([]);
 
     const isInCart =(id) => cart.find (product => product.id === id) ? true : false;
 
-    const removeItem = (id) => cart.filter (product => product.id !== id);
+    const removeItem = (id) => setCart(cart.filter (product => product.id !== id));
 
     const addProduct = (item, quantity) => {
         if (isInCart (item.id)) {
@@ -30,7 +36,7 @@ const CartProvider = ({children}) => {
 
 
     return (
-        <CartContext.Provider value= {{clear,isInCart,removeItem, addProduct}}>
+        <CartContext.Provider value= {{clear,isInCart, removeItem, addProduct, totalCart, totalQuantity, cart}}>
             {children} 
         </CartContext.Provider>
     )
