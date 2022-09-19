@@ -7,9 +7,9 @@ import { CartContext } from "../CartContext/CartContext";
 const CartWidget = ()=> {
     const {totalQuantity} = useContext(CartContext);
     return ( 
-        <div>
+        <div className="cartWidget">
             <i className="bi bi-cart" style={{color:"#fff"} }> </i>
-            <p className="text-light">{totalQuantity() === 0 ? '':totalQuantity()}</p>
+            <p className="text-light cartQuantity" >{totalQuantity() === 0 ? '':totalQuantity()}</p>
         </div>
     )
 }

@@ -1,3 +1,14 @@
+.cartWidget{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartQuantity {
+    margin: 5px;
+}
+
 .cart {
     height: 10px;
     width: 10px;
