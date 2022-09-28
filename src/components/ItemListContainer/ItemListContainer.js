@@ -5,7 +5,7 @@ import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
 // FIREBASE
-import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 const ItemListContainer = () => {
     const [data, setData] = useState ([]);
@@ -14,15 +14,14 @@ const ItemListContainer = () => {
     useEffect(() => {
         const querydb = getFirestore();
         const queryCollection = collection (querydb, 'products');
-        const queryCategory = query( queryCollection, where('category','==', {categoryId}))
-        
-        if (categoryId) {
-            getDocs (queryCategory)
-                .then (res=> setData (res.docs.map(product => ({id:product.id,...product.data()}))))
-        } else {
-            getDocs (queryCollection)
-                .then (res=> setData (res.docs.map(product => ({id:product.id,...product.data()}))))
-        }
+        getDocs (queryCollection)
+            .then (res=> setData (res.docs.map(product => ({id:product.id,...product.data()}))))
+        //if (categoryId) {
+
+        //    getData.then(res=>setData(res.filter(products => products.category === categoryId)));
+        //} else {
+         //   getData.then(res=>setData(res));
+        //}
         // eslint-disable-next-line
     }, [categoryId])
     
