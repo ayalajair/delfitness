@@ -1,7 +1,6 @@
-import React, {useState} from "react";
 import './Cart.css'
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../CartContext/CartContext";
 import ItemCart from "../ItemCart/ItemCart";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,9 +8,9 @@ import {db} from '../../Firebase/firebaseConfig'
 import { addDoc, collection } from "firebase/firestore";
 
 const Cart = () => {
-    const{cart, totalCart} = useContext(CartContext);
-    const [idOrder, setIdOrder] = useState("");
-
+    const{cart, totalCart,clear} = useContext(CartContext);
+    const [id, setId] = useState ("");
+    const [saleSucces, setSaleSucces] = useState(false)
 
     const handleClick = () => {
         const orderCollection = collection (db, 'orders');
@@ -24,9 +23,10 @@ const Cart = () => {
             },
             items: cart.map (product => ({id: product.id, title: product.title, price: product.price, quantity: product.quantity})),
             total: totalCart()
-        }).then ((res) => setIdOrder (res.id))
+        }).then ((res) => {setId (res.id);
+                            setSaleSucces (true);
+                            })
         
-
     }
 
     if (cart.length === 0) {
@@ -37,8 +37,17 @@ const Cart = () => {
             </div>
         )
     };
+    if (saleSucces){
+        return (
+            <div className='finishSale'>
+                <p> Tu compra con el Id {id}, fue realizada con éxito, nos comunicaremos a vía mail para proseguir con ella. </p>
+                <Link to='/'><button onClick={clear}>Volver al Inico</button></Link>
+            </div>
+        )
+    };
     return (
-        <div>
+        
+        <div >
             {cart.map (product => <ItemCart key={product.id} product={product}/>)} 
             <p className="fs-3 fw-bold ">Total: ${totalCart()}</p>
             <button onClick={handleClick}>Finalizar compra</button>
