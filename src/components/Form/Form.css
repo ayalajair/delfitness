@@ -1,0 +1,16 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.saleTitle {
+    margin: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}

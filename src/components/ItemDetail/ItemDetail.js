@@ -11,13 +11,14 @@ import { CartContext } from "../CartContext/CartContext";
 
 const ItemDetail = ({data}) => {
 
-    const [goToCart, setGoToCart] = useState (false);
+    const [goToCart, setGoToCart, ] = useState (false);
 
     const {addProduct} =useContext(CartContext);
 
     const onAdd = (quantity) => {
         setGoToCart(true);
         addProduct (data, quantity);
+
     }
 
     return(
@@ -31,7 +32,7 @@ const ItemDetail = ({data}) => {
                         <h3 className="tituloProducto m-1">{data.title}</h3>
                         <h2>$ {data.price}</h2>
                         <p className="text-wrap w-70 textDescription">{data.description}</p>
-                        {goToCart ? <Link to='/cart'><button className="btn btn-outline-light button mb-4">Finalizar compra</button></Link>
+                        {goToCart ? <Link to='/cart'><button className="btn btn-dark button mb-4">Ir al carrito</button></Link>
                         : <ItemCount initial={0} stock={data.stock} onAdd={onAdd}/>}
                         <p>{`Stock: ${data.stock} unidades`}</p>
                         <ToastContainer 
