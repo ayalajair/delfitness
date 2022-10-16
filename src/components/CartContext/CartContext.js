@@ -5,12 +5,24 @@ export const CartContext = createContext ([]);
 
 const CartProvider = ({children}) => {
     const notify = (item) => toast(`${item.title} se ha agregado al carrito`);
+    const getCartLS = (key)=> {
+        const cartLS = JSON.parse(localStorage.getItem(key))
+        return cartLS || []  }
+    
+    const [cart, setCart] = useState (()=>{
+        return getCartLS ('cart')
+    });
 
-    const [cart, setCart] = useState ([]);
+    useEffect(() => {
+        const cartLS = JSON.parse(localStorage.getItem('cart'));
+        if (cartLS) {
+        setCart(cartLS);
+        }
+    }, []);
 
-    const saveCart = () => {
-        localStorage.setItem ('cart', JSON.stringify(cart))
-    }
+    useEffect(()=>{
+        localStorage.setItem('cart', JSON.stringify(cart))
+    },[cart])
 
     const totalCart = () => {
         return cart.reduce ((prev, act) => prev + act.quantity * act.price, 0);
@@ -19,13 +31,12 @@ const CartProvider = ({children}) => {
     const totalQuantity = () => cart.reduce ((acc,actProd)=> acc + actProd.quantity,0);
 
     const clear = () => {setCart([]);
-                        saveCart();
     }
 
     const isInCart =(id) => cart.find (product => product.id === id) ? true : false;
 
     const removeItem = (id) => {setCart(cart.filter (product => product.id !== id));
-                                saveCart();
+
     }
 
     const addProduct = (item, quantity) => {
@@ -38,14 +49,13 @@ const CartProvider = ({children}) => {
             notify(item)
             setCart ([...cart, {...item, quantity }]);
         }
-        saveCart ();
     }
 
 
 
 
     return (
-        <CartContext.Provider value= {{clear,isInCart, removeItem, addProduct, totalCart, totalQuantity, saveCart, cart}}>
+        <CartContext.Provider value= {{clear,isInCart, removeItem, addProduct, totalCart, totalQuantity, cart}}>
             {children} 
         </CartContext.Provider>
     )

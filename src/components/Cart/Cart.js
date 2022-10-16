@@ -14,16 +14,16 @@ const Cart = () => {
         
 
     return (
-        <div>
+        <div className='cartComp'>
             {cart.length === 0 ? (
             <div className='cartContainer'>
                 <h3 className='empty'>El carrito está vacio</h3>
                 <Link to='/'><button className='btn btn-dark m-4'>Volver al Inico</button></Link>
-            </div>
+        </div>
             ): (
             <div className='cartContainer'>
             {cart.map (product => <ItemCart key={product.id} product={product}/>)} 
-            <p className="fs-3 fw-bold ">Total: ${totalCart()}</p>
+            <p className="fs-3 fw-bold totalCart">Total: ${totalCart()}</p>
             </div>)}
             <Form/>
         </div>

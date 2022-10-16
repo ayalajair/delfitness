@@ -26,20 +26,13 @@ const ItemListContainer = () => {
             getDocs (productsCollection)
             .then (res=> setData (res.docs.map(product => ({id:product.id,...product.data()}))))
         }
-        //if (categoryId) {
-
-        //    getData.then(res=>setData(res.filter(products => products.category === categoryId)));
-        //} else {
-         //   getData.then(res=>setData(res));
-        //}
-        // eslint-disable-next-line
     }, [categoryId])
     
 
 
     return (
         <>
-        <div className="row justify-content-center row-cols-2 row-cols-sm-3 row-cols-md-4 g-4">
+        <div className="row justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
         <ItemList data={data}/>
         </div>
         </>

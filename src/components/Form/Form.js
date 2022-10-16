@@ -63,11 +63,12 @@ const Form = () => {
 
     //RENDERIZADO DEL FORM
     if (saleSucces) {
-            return (
+        if (cart.length !== 0){
+            return ( 
                 <div className="formContainer">
                     <h3 className="saleTitle">Necesitamos tus datos para continuar la compra:</h3>
-        <form  onSubmit={handleSubmit(sendData)}> 
-        <input className="form-control form-control-lg"
+                    <form  onSubmit={handleSubmit(sendData)}> 
+                    <input className="form-control form-control-lg"
             type="text"
             name="name"
             placeholder="Nombre"
@@ -110,12 +111,18 @@ const Form = () => {
         </form>
     </div>
 
-    )} 
+    )} else {
+        return (
+            <div></div>
+        )
+    }}
     else  { 
             return (
                 <div className="formContainer">
-                    <p>{`${name} nos comunicaremos a tu casilla de correo ${email} para seguir con tu compra`}</p>
-                    <p>{`Id de la compra: ${id}`}</p>
+                    <div className="saleDone">
+                        <p>{`${name} nos comunicaremos a tu casilla de correo ${email} para seguir con tu compra`}</p>
+                        <p>{`Id de la compra: ${id}`}</p>
+                    </div>
                     <ToastContainer/>
                 </div>
             )} 
